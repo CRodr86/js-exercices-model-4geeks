@@ -14,51 +14,55 @@ const cleanArray = (array) => {
     }
     return validArray;
 }
+
 /* EJERCICIO 1 */
 //La función ascendingOrder utiliza el método Bubble Sort para ordenar los valores numéricos de un array de menor a mayor
 const ascendingOrder = (array) => {
     let cleanedArray = cleanArray(array);
-    for(let i = 0; i < cleanedArray.length-1; i++) { //El array es recorrido dos veces
+    //El array es recorrido dos veces
+    for(let i = 0; i < cleanedArray.length-1; i++) {
         for(let j = 0; j < cleanedArray.length-1; j++) {
-            if(cleanedArray[j] > cleanedArray[j+1]) { //Si un valor es mayor que el siguiente
+            //Si un valor es mayor que el siguiente
+            if(cleanedArray[j] > cleanedArray[j+1]) {
             let aux = cleanedArray[j];
-            cleanedArray[j] = cleanedArray[j+1]; //Se intercambian las posiciones de los valores
+            //Se intercambian las posiciones de los valores
+            cleanedArray[j] = cleanedArray[j+1];
             cleanedArray[j+1] = aux;
             }
         }
     }
     return cleanedArray;
 }
-console.log(ascendingOrder(sequence)) //console.log para testar la función ascendingOrder
+//console.log para testar la función ascendingOrder
+console.log(ascendingOrder(sequence))
+
 
 /* EJERCICIO 2 */
-//La función decendingOrder utiliza el método Bubble Sort para ordenar los valores numéricos de un array de mayor a menor
+//La función decendingOrder llama a la función ascendingOrder y invierte su resultado con la utilización del método array.reverse()
 const descendingOrder = (array) => {
-    let cleanedArray = cleanArray(array);
-    for(let i = 0; i < cleanedArray.length-1; i++) { //El array es recorrido dos veces
-        for(let j = 0; j < cleanedArray.length-1; j++) {
-            if(cleanedArray[j] < cleanedArray[j+1]) { //Si un valor es menor que el siguiente
-            let aux = cleanedArray[j];
-            cleanedArray[j] = cleanedArray[j+1]; //Se intercambian las posiciones de los valores
-            cleanedArray[j+1] = aux;
-            }
-        }
-    }
-    return cleanedArray;
+    let ascendingArray = ascendingOrder(array);
+    return ascendingArray.reverse();
 }
-console.log(descendingOrder(sequence)) //console.log para testar la función descendingOrder
+//console.log para testar la función descendingOrder
+console.log(descendingOrder(sequence))
+
 
 /* EJERCICIO 3 */
 //La función arrayAverage retorna la media aritmética de los valores numérico de un array dado
 const arrayAverage = (array) => {
     let cleanedArray = cleanArray(array);
     let total = 0;
-    for (let i in cleanedArray){ //El array es recorrido
-        total += cleanedArray[i]; //Se suman todos los valores del array
+    //El array es recorrido
+    for (let i in cleanedArray){
+        //Se suman todos los valores del array
+        total += cleanedArray[i];
     }
-    return total/cleanedArray.length; //Se retorna la división de la suma entre la longitud del array 
+    //Se retorna la división de la suma entre la longitud del array
+    return total/cleanedArray.length; 
 }
-console.log(arrayAverage(sequence)) //console.log para testar la función arrayAverage
+//console.log para testar la función arrayAverage
+console.log(arrayAverage(sequence))
+
 
 /* EJERCICIO 4 */
 //La función checkDni verifica si el número de DNI indicado es válido y luego verifica si la letra indicada corresponde con el número
@@ -76,4 +80,5 @@ const checkDni = (dniNumber, dniLetter) => {
         }
     }
 }
-console.log(checkDni(5544778, "T")) //console.log para testar la función checkDni
+//console.log para testar la función checkDni
+console.log(checkDni(5544778, "V")) 
